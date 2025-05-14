@@ -1,6 +1,6 @@
 import { check } from 'express-validator';
 import { validatorMiddleware } from './validatorMiddleware.js';
-import { User } from '../../models/User.model.js';
+import User  from '../../models/User.model.js';
 
 // Validation for user registration
 export const validateRegister = [

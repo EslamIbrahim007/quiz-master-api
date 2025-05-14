@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 // Importing necessary modules
 
 export const userSchema = new Schema({
@@ -39,4 +39,5 @@ userSchema.methods.isPasswordMatch = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-export const User = model('User', userSchema);
+const User = model('User', userSchema);
+export default User;

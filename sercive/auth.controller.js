@@ -2,7 +2,7 @@
 import User from '../models/User.model.js';
 import asyncHandler from 'express-async-handler';
 import { createToken } from '../utils/token.js';
-import { ApiError } from '../utils/error.js';
+import ApiError  from '../utils/error.js';
 
 // @desc    Register a new user
 // @route   POST /api/auth/register
@@ -54,5 +54,13 @@ export const login = asyncHandler(async (req, res, next) => {
     name: user.name,
     email: user.email,
     token,
+  });
+});
+// @desc    Logout a user
+// @route   POST /api/auth/logout
+export const logout = asyncHandler(async (req, res) => {
+  // Clear the token from the client side
+  res.status(200).json({
+    message: 'Logged out successfully',
   });
 });

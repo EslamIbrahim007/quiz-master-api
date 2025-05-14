@@ -1,7 +1,6 @@
 import { validationResult } from 'express-validator';
 
-
-const validatorMiddleware = (req, res, next) => {
+export const validatorMiddleware = (req, res, next) => {
   // Check for validation errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -11,5 +10,4 @@ const validatorMiddleware = (req, res, next) => {
   }
   // If no errors, proceed to the next middleware
   next();
-}
-export default validatorMiddleware;
+};
